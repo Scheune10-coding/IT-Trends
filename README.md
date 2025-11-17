@@ -1,5 +1,5 @@
 # IT-Trends
-Hier sind Anleitungen für die Aufgaben meiner IT-Trends HA.
+Hier sind Anleitungen für meine IT-Trends HA.
  - erstellen einer [Öffentliche Datei in S3](https://github.com/HackerLoad/IT-Trends/blob/main/Global-S3_04.11.2025.md)
  - einsicht in [AWS CLI](https://github.com/HackerLoad/IT-Trends/blob/main/AWS-CLI_04.11.2025.md)
  - erstellen eines [Sync-Skripts](https://github.com/HackerLoad/IT-Trends/blob/main/Sync-Skript_07.11.2025.md)
