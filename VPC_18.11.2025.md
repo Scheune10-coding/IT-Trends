@@ -54,18 +54,22 @@
 
 ## 7. Webserver installieren und "Hallo Dienstag" anzeigen
 1. Paketliste aktualisieren:
-    - sudo apt update
+```sudo apt update```
 
 2. Apache Webserver installieren:
-    - sudo apt install apache2 -y
+```sudo apt install apache2 -y
 
 3. Apache starten & aktivieren:
-    - sudo systemctl enable apache2
-    - sudo systemctl start apache2
+```
+sudo systemctl enable apache2
+sudo systemctl start apache2
+```
 
 4. "Hallo Dienstag" als Webseite setzen:
-    - sudo nano /var/www/html/index.html
-    - inhalt in `<h1>`oder `<p>` ändern
+```
+sudo nano /var/www/html/index.html
+inhalt in `<h1>`oder `<p>` ändern
+```
 
 
 

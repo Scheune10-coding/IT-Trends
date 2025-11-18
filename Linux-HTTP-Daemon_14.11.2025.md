@@ -6,9 +6,11 @@
 3. Einloggen:
     - ssh -i key.pem ubuntu@`<PUBLIC-IP>`
 4. Webserver installieren:
-    - sudo apt update
-    - sudo apt install apache2 -y
-    - sudo systemctl enable apache2
-    - sudo systemctl start apache2
+```
+sudo apt update
+sudo apt install apache2 -y
+sudo systemctl enable apache2
+sudo systemctl start apache2
+```
 5. Test:
     - http://`<PUBLIC-IP>`
