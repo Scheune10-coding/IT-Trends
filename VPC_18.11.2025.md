@@ -89,6 +89,12 @@ sudo nano /var/www/html/index.html
 </html>
 ```
 
+6. Datei Speichern und Apache neu laden
+    - CTRL + X
+```
+sudo systemctl reload apache2
+```
+
 
 ## 8. Test im Browser
 1. Browser öffnen
