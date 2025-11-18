@@ -69,12 +69,25 @@ sudo systemctl enable apache2
 sudo systemctl start apache2
 ```
 
-4. "Hallo Dienstag" als Webseite setzen:
+4. HTML Datei leeren und öffnen:
 ```
+sudo truncate -s 0 /var/www/html/index.html
 sudo nano /var/www/html/index.html
-inhalt in `<h1>`oder `<p>` ändern
 ```
 
+5. Code in HTML Datei einfügen z.B.
+```
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Hallo Dienstag</title>
+</head>
+<body>
+    <h1>Hallo Dienstag</h1>
+</body>
+</html>
+```
 
 
 ## 8. Test im Browser
