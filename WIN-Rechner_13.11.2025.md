@@ -6,4 +6,4 @@
 3. Administrator-Passwort entschlüsseln:
    - "Get Windows Password" → key.pem hochladen
 4. Per RDP verbinden:
-   - Windows Remotedesktop → IP eingeben
+   - Windows Remotedesktop → IP + Passwort eingeben
