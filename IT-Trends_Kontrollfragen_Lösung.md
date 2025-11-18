@@ -20,24 +20,24 @@ IoT-Sensoren an Zügen senden Daten in Echtzeit an eine Cloud-Plattform, KI bewe
 - **Praxis**: Edge für Echtzeitdaten (z. B. Bremssensoren), Cloud für langfristige Analyse und KI-Training.
 
 ### Anwendungsfälle für KI
-**1. Bilderkennung**
+#### 1. Bilderkennung
 - KI erkennt Objekte, Personen oder Muster in Bildern/Videos
 Beispiel: Qualitätskontrollen, Gesichtserkennung
-**2. Spracherkennung**
+#### 2. Spracherkennung
 - KI versteht und erzeugt menschliche Sprache
 Beispiel: Chatbots, Sprachassistenten, Übersetzer
-**3. Predictive Analytics**
+#### 3. Predictive Analytics
 - KI analysiert Daten und prognostiziert zukünftige Entwicklung
 Beispeil: Umsatzprognosen, Wartungsvorhersagen
-**4. Autonome Systeme**
+#### 4. Autonome Systeme
 - KI trifft Entscheidungen in Echtzeit auf Basis von Server - und Kameradaten
 Beispiel: Autonomes fahren von Autos, Drohnen
-**5. Medizinische Diagnostik**
+#### 5. Medizinische Diagnostik
 - KI unterstützt bei der Auswertung medizinischer Daten
 Beispiel: Tumorerkrankung, Analyse MRT
-**6. Robotik**
+#### 6. Robotik
 - KI steuert Roboter und ermöglicht selbständiges Lernen und Handeln
-**7. Fraud Detecion**
+#### 7. Fraud Detecion
 - KI erkennt ungewöhnliche Muster und verdächtige Transaktionen
 
 ### Grundprinzipien der IT-Sicherheit
