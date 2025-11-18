@@ -20,10 +20,25 @@ IoT-Sensoren an Zügen senden Daten in Echtzeit an eine Cloud-Plattform, KI bewe
 - **Praxis**: Edge für Echtzeitdaten (z. B. Bremssensoren), Cloud für langfristige Analyse und KI-Training.
 
 ### Anwendungsfälle für KI
-- Sprach- und Bilderkennung (Chatbots, Ticket-Scanner).
-- Prognosen: Auslastung, Energiebedarf, Wartung.
-- Automatisierte Text- und Dokumentanalyse.
-- Verspätungs- und Fahrplanprognosen bei der DB.
+**1. Bilderkennung**
+- KI erkennt Objekte, Personen oder Muster in Bildern/Videos
+Beispiel: Qualitätskontrollen, Gesichtserkennung
+**2. Spracherkennung**
+- KI versteht und erzeugt menschliche Sprache
+Beispiel: Chatbots, Sprachassistenten, Übersetzer
+**3. Predictive Analytics**
+- KI analysiert Daten und prognostiziert zukünftige Entwicklung
+Beispeil: Umsatzprognosen, Wartungsvorhersagen
+**4. Autonome Systeme**
+- KI trifft Entscheidungen in Echtzeit auf Basis von Server - und Kameradaten
+Beispiel: Autonomes fahren von Autos, Drohnen
+**5. Medizinische Diagnostik**
+- KI unterstützt bei der Auswertung medizinischer Daten
+Beispiel: Tumorerkrankung, Analyse MRT
+**6. Robotik**
+- KI steuert Roboter und ermöglicht selbständiges Lernen und Handeln
+**7. Fraud Detecion**
+- KI erkennt ungewöhnliche Muster und verdächtige Transaktionen
 
 ### Grundprinzipien der IT-Sicherheit
 - **CIA-Triade**: Confidentiality (Vertraulichkeit), Integrity (Integrität), Availability (Verfügbarkeit).
@@ -45,18 +60,6 @@ IoT-Sensoren an Zügen senden Daten in Echtzeit an eine Cloud-Plattform, KI bewe
 - POST – Daten senden:
   ```sh
   curl -X POST -H "Content-Type: application/json" -d '{"status":"ready"}' https://api.db.example.com/v1/trains
-  ```
-- PUT – Ressource vollständig ersetzen/aktualisieren:
-  ```sh
-  curl -X PUT -H "Content-Type: application/json" -d '{"status":"in_service"}' https://api.db.example.com/v1/trains/ICE123
-  ```
-- PATCH – Ressource teilweise aktualisieren:
-  ```sh
-  curl -X PATCH -H "Content-Type: application/json" -d '{"status":"delayed"}' https://api.db.example.com/v1/trains/ICE123
-  ```
-- DELETE – Ressource löschen:
-  ```sh
-  curl -X DELETE https://api.db.example.com/v1/trains/ICE123
   ```
 - Tipp: `-i` zeigt Header, `-v` Debug, `-sS` still mit Fehlern
 
