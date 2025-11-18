@@ -46,18 +46,6 @@ IoT-Sensoren an Zügen senden Daten in Echtzeit an eine Cloud-Plattform, KI bewe
   ```sh
   curl -X POST -H "Content-Type: application/json" -d '{"status":"ready"}' https://api.db.example.com/v1/trains
   ```
-- PUT – Ressource vollständig ersetzen/aktualisieren:
-  ```sh
-  curl -X PUT -H "Content-Type: application/json" -d '{"status":"in_service"}' https://api.db.example.com/v1/trains/ICE123
-  ```
-- PATCH – Ressource teilweise aktualisieren:
-  ```sh
-  curl -X PATCH -H "Content-Type: application/json" -d '{"status":"delayed"}' https://api.db.example.com/v1/trains/ICE123
-  ```
-- DELETE – Ressource löschen:
-  ```sh
-  curl -X DELETE https://api.db.example.com/v1/trains/ICE123
-  ```
 - Tipp: `-i` zeigt Header, `-v` Debug, `-sS` still mit Fehlern
 
 ### Aufbau einer REST-Schnittstelle
