@@ -54,10 +54,14 @@
 
 ## 7. Webserver installieren und "Hallo Dienstag" anzeigen
 1. Paketliste aktualisieren:
-```sudo apt update```
+```
+sudo apt update
+```
 
 2. Apache Webserver installieren:
-```sudo apt install apache2 -y
+```
+sudo apt install apache2 -y
+```
 
 3. Apache starten & aktivieren:
 ```
