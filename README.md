@@ -8,3 +8,4 @@ Hier sind Anleitungen für meine IT-Trends HA.
  - erstellen eines [Windows Rechners](https://github.com/Scheune10-coding/IT-Trends/blob/main/WIN-Rechner_13.11.2025.md)
  - erstellen einer [Linux Instanz mit HTTP Daemon](https://github.com/Scheune10-coding/IT-Trends/blob/main/Linux-HTTP-Daemon_14.11.2025.md)
  - erstellen einer [Virtual Private Cloud](https://github.com/Scheune10-coding/IT-Trends/blob/main/VPC_18.11.2025.md)
+[Lösung zu Kontrollfragen](https://github.com/Scheune10-coding/IT-Trends/blob/main/IT-Trends_Kontrollfragen_Lösung.md)
