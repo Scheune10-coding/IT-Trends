@@ -7,7 +7,7 @@ Um die Kosten für einen Cloud-Service zu berechnen, solltest du folgende Schrit
 
 2. **Preismodell prüfen**  
    Jeder Service hat ein eigenes Preismodell. Die wichtigsten findest du auf der offiziellen Preisseite:
-   - [AWS Pricing Calculator](https://calculator.aws.amazon.com/)
+   - [AWS Pricing Calculator](https://calculator.aws#/addService)
    - [AWS S3 Pricing](https://aws.amazon.com/de/s3/pricing/)
    - [AWS EC2 Pricing](https://aws.amazon.com/de/ec2/pricing/)
    - [AWS VPC Pricing](https://aws.amazon.com/de/vpc/pricing/)
