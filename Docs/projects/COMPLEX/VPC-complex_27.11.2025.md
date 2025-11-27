@@ -28,7 +28,7 @@ Am Ende funktioniert:
 **Pfad:**  
 VPC → *Create VPC* → Select **VPC and more**
 
-**Einstellungen:**
+**Einstellungen*:**
 
 | Einstellung               | Wert                             |
 |---------------------------|----------------------------------|
@@ -42,7 +42,7 @@ VPC → *Create VPC* → Select **VPC and more**
 | DNS Hostnames             | Enabled                          |
 | DNS Resolution            | Enabled                          |
 
-**Einstellungen können je nach Aufgabenstellung variieren
+*Einstellungen können je nach Aufgabenstellung variieren
 
 ---
 
@@ -73,14 +73,15 @@ AWS erzeugt automatisch:
 ## 5. Security Groups
 
 Der Wizard erzeugt eine Default-SG, aber du brauchst eigene.
+
 **Pfad:**  
 VPC → *Security* → **Security groups** -> **Create security group**
 
 ### Public-SG (für Public EC2)
 
-**Security Group name** -> Public-SG
-**Description** -> Allow pulic acces to subnet
-**VPC** -> my-vpc-01
+- **Security Group name** -> Public-SG
+- **Description** -> Allow pulic acces to subnet
+- **VPC** -> my-vpc-01
 
 **Inbound:**
 - **Type** -> HTTP (80) | **Source** -> 0.0.0.0/0
@@ -91,9 +92,9 @@ VPC → *Security* → **Security groups** -> **Create security group**
 
 ### Private-SG (für Private EC2)
 
-**Security Group name** -> Private-SG
-**Description** -> Allow only intern acces to subnet
-**VPC** -> my-vpc-01
+- **Security Group name** -> Private-SG
+- **Description** -> Allow only intern acces to subnet
+- **VPC** -> my-vpc-01
 
 - **Type** -> HTTP (80) | **Source** -> Public-SG
 - **Type** -> SSH  (22) | **Source** -> Public-SG
@@ -118,6 +119,30 @@ Damit ist die private Instanz nur intern erreichbar.
 ```sh
 ssh -i WIA24.pem ubuntu@<PUBLIC-IP>
 ```
+#### Schlüssel-Datei auf die Public-EC2 kopieren
+
+Damit du von der Public-EC2 aus zur Private-EC2 springen kannst, brauchst du den Key dort auf der Maschine.
+
+##### Vom lokalen Rechner zur Public-EC2 kopieren
+
+Auf deinem Mac/PC (im Ordner, wo WIA24.pem liegt):
+
+```sh
+scp -i WIA24.pem WIA24.pem ubuntu@<PUBLIC-IP-DER-PUBLIC-EC2>:~/
+```
+
+**Beispiel:**
+
+```sh
+scp -i WIA24.pem WIA24.pem ubuntu@18.212.130.185:~/
+```
+
+Dann auf der Public-EC2:
+
+```sh
+chmod 400 WIA24.pem
+ls -l WIA24.pem
+```
 
 ### Private EC2
 
@@ -127,9 +152,10 @@ ssh -i WIA24.pem ubuntu@<PUBLIC-IP>
 - SG: Private-SG
 
 **SSH Login über Public EC2:**
+
 ```sh
 ssh -i WIA24.pem ubuntu@<PUBLIC-IP>
-ssh ubuntu@10.0.2.X
+ssh -i WIA24.pem ubuntu@10.27.131.48
 ```
 
 ---
@@ -147,22 +173,20 @@ sudo systemctl reload apache2
 
 **<HTML> Bsp.:**
 ```html
-    <!DOCTYPE html>
-    <html lang="de">
-    <head>
-        <meta charset="UTF-8">
-        <title>Public Subnet</title>
-    </head>
-    <body>
-        <h1>Hello public subnet</h1>
-    </body>
-    </html>
-    ```
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Public Subnet</title>
+</head>
+<body>
+    <h1>Hello public subnet</h1>
+</body>
+</html>
+```
 
 **Test:**
-```
 http://<PUBLIC-IP>
-```
 
 ### Private EC2 – interner Webserver (kein Internet -> kein Apache)
 
@@ -174,22 +198,21 @@ sudo python3 -m http.server 80 --directory /var/www/html
 
 **<HTML> Bsp.:**
 ```html
-    <!DOCTYPE html>
-    <html lang="de">
-    <head>
-        <meta charset="UTF-8">
-        <title>Private Subnet</title>
-    </head>
-    <body>
-        <h1>Hello private subnet</h1>
-    </body>
-    </html>
-    ```
-
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Private Subnet</title>
+</head>
+<body>
+    <h1>Hello private subnet</h1>
+</body>
+</html>
+```
 
 **Test (von Public-EC2 aus):**
 ```sh
-curl http://10.0.2.X
+curl http://<PRIVATE-IP>
 ```
 
 ---
@@ -205,18 +228,18 @@ curl http://10.0.2.X
 
 - **Test 3 – Public → Private:**  
   ✔ Muss funktionieren:  
-  `curl 10.0.2.X`
+  `curl <PRIVATE-IP>`
 
 - **Test 4 – SSH Public → SSH Private:**  
   ✔ Muss funktionieren:  
-  `ssh ubuntu@10.0.2.X`
+  `ssh ubuntu@<PRIVATE-IP>`
 
 ---
 
 ## 9. Typische Fehlerquellen
 
 **Fehler 1: Public-SG NICHT als Source in Private-SG**  
-- Symptom: `curl 10.0.2.X` hängt.  
+- Symptom: `curl <PRIVATE-IP>` hängt.  
 - Fix: Private-SG → Inbound → Source = **Public-SG**
 
 **Fehler 2: Public/Private EC2 ist im falschen Subnet**  
