@@ -124,7 +124,7 @@ ssh -i WIA24.pem ubuntu@<PUBLIC-IP>
 Damit du von der Public-EC2 aus zur Private-EC2 springen kannst, brauchst du den Key dort auf der Maschine.
 
 ##### Vom lokalen Rechner zur Public-EC2 kopieren
-Auf deinem Mac/PC (im Ordner, wo <Name>.pem liegt):
+Auf deinem Mac/PC (im Ordner, wo .pem liegt):
 
 ```sh
 scp -i WIA24.pem WIA24.pem ubuntu@<PUBLIC-IP-DER-PUBLIC-EC2>:~/
@@ -156,14 +156,13 @@ ssh -i WIA24.pem ubuntu@<PRIVATE-IP>
 
 ### Public EC2 – öffentlicher Webserver
 
+1. HTML-Datei leeren und öffnen:
 ```sh
-sudo apt update
-sudo apt install apache2 -y
-sudo bash -c 'echo "<HTML>" > /var/www/html/index.html'
-sudo systemctl reload apache2
+sudo truncate -s 0 /var/www/html/index.html
+sudo nano /var/www/html/index.html
 ```
 
-**<HTML> Bsp.:**
+2. Code in HTML-Datei einfügen:
 ```html
 <!DOCTYPE html>
 <html lang="de">
@@ -176,6 +175,12 @@ sudo systemctl reload apache2
 </body>
 </html>
 ```
+*(Speichern mit CTRL + X, dann Y und Enter)*
+
+3. Apache neu laden:
+```sh
+sudo systemctl reload apache2
+```
 
 **Test:**
 http://<PUBLIC-IP>
@@ -184,11 +189,11 @@ http://<PUBLIC-IP>
 
 ```sh
 sudo mkdir -p /var/www/html
-sudo bash -c 'echo "<HTML>" > /var/www/html/index.html'
+echo '<HTML>' | sudo tee /var/www/html/index.html
 sudo python3 -m http.server 80 --directory /var/www/html
 ```
 
-**<HTML> Bsp.:**
+**HTML Bsp.:**
 ```html
 <!DOCTYPE html>
 <html lang="de">
