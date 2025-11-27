@@ -12,18 +12,18 @@
    - Bucket auswählen → **Permissions** → **Edit Bucket policy**
    ```json
    {
-    "Version": "2012-10-17",
-    "Statement": [
+      "Version": "2012-10-17",
+      "Statement": [
         {
-            "Sid": "JPEG_TestZugriff",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::amzn-test-bucketls/<file>"
+          "Sid": "JPEG_TestZugriff",
+          "Effect": "Allow",
+          "Principal": "*",
+          "Action": "s3:GetObject",
+          "Resource": "arn:aws:s3:::amzn-test-bucketls/<file>"
         }
-    ]
-  }
-   ```
+      ]
+    }
+  ```
 
 5. Öffentlichen Link kopieren:
    - Datei im Bucket auswählen-> **Object URL** → Link verwenden
