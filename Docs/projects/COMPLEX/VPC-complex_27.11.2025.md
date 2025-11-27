@@ -156,13 +156,30 @@ ssh -i WIA24.pem ubuntu@<PRIVATE-IP>
 
 ### Public EC2 – öffentlicher Webserver
 
-1. HTML-Datei leeren und öffnen:
+1. Paketliste aktualisieren:
+```sh
+sudo apt update
+```
+
+2. Apache Webserver installieren:
+```sh
+sudo apt install apache2 -y
+```
+
+3. Apache starten & aktivieren:
+```sh
+sudo systemctl enable apache2
+sudo systemctl start apache2
+```
+
+
+4. HTML-Datei leeren und öffnen:
 ```sh
 sudo truncate -s 0 /var/www/html/index.html
 sudo nano /var/www/html/index.html
 ```
 
-2. Code in HTML-Datei einfügen:
+5. Code in HTML-Datei einfügen:
 ```html
 <!DOCTYPE html>
 <html lang="de">
@@ -177,7 +194,7 @@ sudo nano /var/www/html/index.html
 ```
 *(Speichern mit CTRL + X, dann Y und Enter)*
 
-3. Apache neu laden:
+6. Apache neu laden:
 ```sh
 sudo systemctl reload apache2
 ```
