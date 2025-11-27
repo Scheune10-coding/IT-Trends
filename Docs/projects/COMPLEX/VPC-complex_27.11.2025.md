@@ -183,7 +183,7 @@ sudo systemctl reload apache2
 ```
 
 **Test:**
-http://<PUBLIC-IP>
+http://PUBLIC-IP
 
 ### Private EC2 – interner Webserver (kein Internet -> kein Apache)
 
