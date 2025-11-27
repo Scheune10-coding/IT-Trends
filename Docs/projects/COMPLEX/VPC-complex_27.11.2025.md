@@ -119,22 +119,15 @@ Damit ist die private Instanz nur intern erreichbar.
 ```sh
 ssh -i WIA24.pem ubuntu@<PUBLIC-IP>
 ```
-#### Schlüssel-Datei auf die Public-EC2 kopieren
 
+#### Schlüssel-Datei auf die Public-EC2 kopieren
 Damit du von der Public-EC2 aus zur Private-EC2 springen kannst, brauchst du den Key dort auf der Maschine.
 
 ##### Vom lokalen Rechner zur Public-EC2 kopieren
-
-Auf deinem Mac/PC (im Ordner, wo WIA24.pem liegt):
+Auf deinem Mac/PC (im Ordner, wo <Name>.pem liegt):
 
 ```sh
 scp -i WIA24.pem WIA24.pem ubuntu@<PUBLIC-IP-DER-PUBLIC-EC2>:~/
-```
-
-**Beispiel:**
-
-```sh
-scp -i WIA24.pem WIA24.pem ubuntu@18.212.130.185:~/
 ```
 
 Dann auf der Public-EC2:
@@ -154,8 +147,7 @@ ls -l WIA24.pem
 **SSH Login über Public EC2:**
 
 ```sh
-ssh -i WIA24.pem ubuntu@<PUBLIC-IP>
-ssh -i WIA24.pem ubuntu@10.27.131.48
+ssh -i WIA24.pem ubuntu@<PRIVATE-IP>
 ```
 
 ---
