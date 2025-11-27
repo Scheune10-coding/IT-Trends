@@ -2,13 +2,13 @@
 
 ---
 
-#### Was ist AWS EC2?
+## Was ist AWS EC2?
 
 **Amazon Elastic Compute Cloud (EC2)** ist ein zentraler Cloud-Service von AWS, mit dem du virtuelle Server (Instanzen) flexibel bereitstellen, betreiben und skalieren kannst. EC2 ermöglicht es, Rechenleistung nach Bedarf zu nutzen – von kleinen Testsystemen bis zu großen Produktionsumgebungen.
 
 ---
 
-#### Wichtige Eigenschaften von EC2
+## Wichtige Eigenschaften von EC2
 
 - **Virtuelle Maschinen:** Verschiedene Instanztypen für unterschiedliche Anforderungen (CPU, RAM, Storage).
 - **Flexible Skalierung:** Instanzen können jederzeit gestartet, gestoppt oder angepasst werden.
@@ -20,7 +20,7 @@
 
 ---
 
-#### Typische Anwendungsfälle
+## Typische Anwendungsfälle
 
 - Webserver und Anwendungsserver
 - Datenbankserver
@@ -30,7 +30,7 @@
 
 ---
 
-#### Wichtige EC2-Befehle mit AWS CLI
+## Wichtige EC2-Befehle mit AWS CLI
 
 ```sh
 # Instanz starten
@@ -51,7 +51,7 @@ aws ec2 terminate-instances --instance-ids i-xxxxxxxxxxxx
 
 ---
 
-#### Kosten und Preismodelle
+## Kosten und Preismodelle
 
 - Abrechnung nach Laufzeit (Stunden/Sekunden) und Instanztyp
 - Kosten für Storage (EBS), Datenübertragung und zusätzliche Features

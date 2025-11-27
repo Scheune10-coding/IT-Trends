@@ -145,5 +145,3 @@ Falls die Verbindung nicht klappt, prüfe Security Group, Key und Public IP.
 
 ---
 
-Mit diesen Ergänzungen ist die Anleitung noch genauer und praxisnäher!
-

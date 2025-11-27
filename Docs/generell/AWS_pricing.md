@@ -1,4 +1,4 @@
-#### Kostenberechnung für genutzte Cloud-Services (z. B. AWS)
+# Kostenberechnung für genutzte Cloud-Services (z. B. AWS)
 
 Um die Kosten für einen Cloud-Service zu berechnen, solltest du folgende Schritte beachten:
 
@@ -51,7 +51,7 @@ Um die Kosten für einen Cloud-Service zu berechnen, solltest du folgende Schrit
    - NAT-Gateways und VPC-Endpunkte nur bei Bedarf einsetzen
    - Monitoring- und Alarmfunktionen nutzen (z. B. AWS Budgets)
 
-#### Beispiel für eine einfache S3-Kostenberechnung
+## Beispiel für eine einfache S3-Kostenberechnung
 
 | Nutzung             | Menge   | Preis/Einheit      | Kosten/Monat |
 |---------------------|---------|--------------------|--------------|
@@ -60,7 +60,7 @@ Um die Kosten für einen Cloud-Service zu berechnen, solltest du folgende Schrit
 | Datenübertragung    | 5 GB    | 0,09 USD/GB        | 0,45 USD     |
 | **Gesamt**          |         |                    | **6,85 USD** |
 
-#### Beispiel für eine einfache EC2-Kostenberechnung
+## Beispiel für eine einfache EC2-Kostenberechnung
 
 | Nutzung             | Menge           | Preis/Einheit      | Kosten/Monat |
 |---------------------|-----------------|--------------------|--------------|
@@ -69,7 +69,7 @@ Um die Kosten für einen Cloud-Service zu berechnen, solltest du folgende Schrit
 | Datenübertragung    | 10 GB           | 0,09 USD/GB        | 0,90 USD     |
 | **Gesamt**          |                 |                    | **8,06 USD** |
 
-#### Beispiel für eine einfache VPC-Kostenberechnung
+## Beispiel für eine einfache VPC-Kostenberechnung
 
 | Nutzung                  | Menge         | Preis/Einheit      | Kosten/Monat |
 |--------------------------|--------------|--------------------|--------------|
@@ -82,7 +82,7 @@ Weitere Infos:
 - [AWS Pricing Calculator](https://calculator.aws.amazon.com/)
 - [AWS Kostenmanagement](https://aws.amazon.com/de/aws-cost-management/)
 
-#### Kostenberechnung im Kontext eines Großkonzerns wie der Deutschen Bahn
+## Kostenberechnung im Kontext eines Großkonzerns wie der Deutschen Bahn
 
 Gerade bei einem Großkonzern wie der Deutschen Bahn mit tausenden Nutzern und vielen IT-Systemen ist die Kostenkontrolle besonders wichtig. Hier einige Besonderheiten und Tipps:
 
