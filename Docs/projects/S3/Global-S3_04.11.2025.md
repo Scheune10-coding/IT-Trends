@@ -23,10 +23,10 @@
         }
       ]
     }
-  ```
+   ```
 
 5. Öffentlichen Link kopieren:
-   - Datei im Bucket auswählen-> **Object URL** → Link verwenden
+   - Datei im Bucket auswählen → **Object URL** → Link verwenden
 
 6. Test:
    - Link in privatem Browserfenster öffnen
