@@ -34,7 +34,7 @@ VPC → *Create VPC* → Select **VPC and more**
 |---------------------------|----------------------------------|
 | Name tag prefix           | `my-vpc-01`                      |
 | IPv4 CIDR                 | `10.27.0.0/16`                   |
-| Availability Zones        | **1** (für 1 Public + 1 Private) |
+| Availability Zones        | **1**                            |
 | Number of Public Subnets  | **1**                            |
 | Number of Private Subnets | **1**                            |
 | NAT Gateways              | **None**                         |
@@ -80,7 +80,7 @@ VPC → *Security* → **Security groups** -> **Create security group**
 ### Public-SG (für Public EC2)
 
 - **Security Group name** -> Public-SG
-- **Description** -> Allow pulic acces to subnet
+- **Description** -> Allow public acces to subnet
 - **VPC** -> my-vpc-01
 
 **Inbound:**
@@ -96,6 +96,7 @@ VPC → *Security* → **Security groups** -> **Create security group**
 - **Description** -> Allow only intern acces to subnet
 - **VPC** -> my-vpc-01
 
+**Inbound:**
 - **Type** -> HTTP (80) | **Source** -> Public-SG
 - **Type** -> SSH  (22) | **Source** -> Public-SG
 
@@ -108,12 +109,24 @@ Damit ist die private Instanz nur intern erreichbar.
 
 ## 6. EC2 Instanzen starten
 
+**Pfad:**  
+EC2 → **Instance straten**
+
 ### Öffentliche EC2
 
+- Name: `YourName`
+- **Ubuntu**
+
+Key pair:
+- Deine .pem Datei
+
+Network settings:
 - VPC: `my-vpc-01`
 - Subnet: `project-subnet-public1`
 - Auto-Assign Public IP: **ENABLED**
 - SG: Public-SG
+
+**Klicke auf Instance starten**
 
 **SSH Login:**
 ```sh
@@ -139,10 +152,19 @@ ls -l WIA24.pem
 
 ### Private EC2
 
+- Name: `YourName`
+- **Ubuntu**
+
+Key pair:
+- Deine .pem Datei
+
+Network settings:
 - VPC: `my-vpc-01`
 - Subnet: `project-subnet-private1`
 - Auto-Assign Public IP: **DISABLED**
 - SG: Private-SG
+
+**Klicke auf Instance starten**
 
 **SSH Login über Public EC2:**
 
@@ -192,7 +214,7 @@ sudo nano /var/www/html/index.html
 </body>
 </html>
 ```
-*(Speichern mit CTRL + X, dann Y und Enter)*
+**(Speichern mit CTRL + X, dann Y und Enter)**
 
 6. Apache neu laden:
 ```sh
@@ -206,7 +228,13 @@ http://PUBLIC-IP
 
 ```sh
 sudo mkdir -p /var/www/html
+```
+
+```sh
 echo '<HTML>' | sudo tee /var/www/html/index.html
+```
+
+```sh
 sudo python3 -m http.server 80 --directory /var/www/html
 ```
 
