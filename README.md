@@ -11,7 +11,7 @@
 
 - erstellen einer [Öffentliche Datei in S3](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/S3/Global-S3_04.11.2025.md)
 - erstellen eines [Sync-Skripts](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/S3/Sync-Skript_07.11.2025.md)
-- erstellen eines [Download-Skripts](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/S3/s3_download.md)
+- erstellen eines [Download-Skripts](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/S3/Download-Skript_28.11.2025.md)
 
 - erstellen eines [Linux Rechners](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/EC2/Linux-Rechner_07.11.2025.md)
 - erstellen eines [Windows Rechners](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/EC2/WIN-Rechner_13.11.2025.md)
