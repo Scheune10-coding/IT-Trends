@@ -48,7 +48,7 @@ Einstellungen:
 AWS erzeugt:
 
 * 1 VPC
-* 2 Public Subnets
+* 1 Public Subnet
 * 2 Private Subnets
 * Internet Gateway
 * NAT Gateways
