@@ -23,7 +23,7 @@
 
 - erstellen einer [Virtual Private Cloud](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/VPC/VPC_18.11.2025.md)
 - erstellen einer [VPC mit privaten und öffentlichen Subnet (Webseiten)](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/COMPLEX/VPC-complex_27.11.2025.md)
-- erstellen einer [VPC mit SSH Port-Weiterleitung](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/PORT FORWARDING/Port-forwarding_04.12.2025.md)
+- erstellen einer [VPC mit SSH Port-Weiterleitung](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/PORT%20FORWARDING/Port-forwarding_04.12.2025.md)
 
 ## Kontrollfragen
 - [Lösung zu Kontrollfragen](https://github.com/Scheune10-coding/IT-Trends/blob/main/Kontrollfragen/IT-Trends_Kontrollfragen_Lösung.md)
