@@ -1,132 +1,329 @@
-# IT-Trends – Überblick & Cloud Computing
-
-## 1) IT-Trends – Einleitung / Überblick
-
-### Liste von mindestens 6 IT-Trends mit kurzer Erläuterung
-- **Cloud Computing**: IT-Ressourcen über das Internet flexibel und skalierbar nutzbar (z. B. Rechenleistung, Speicher). Pay-as-you-go und ortsunabhängig.
-- **Industrie 4.0**: Vernetzte, automatisierte Produktion. Maschinen kommunizieren selbstständig (z. B. Predictive Maintenance in Werkstätten).
-- **Internet of Things (IoT)**: Vernetzung physischer Geräte (Sensoren, Fahrzeuge, Maschinen). Grundlage für Smart City und Bahninfrastruktur.
-- **Blockchain**: Technologie zur fälschungssicheren Speicherung von Daten in einer Kette von Einträgen. Nachvollziehbarkeit, Integrität, Transparenz, Manipulationsschutz. Beispiel: Dokumentation von Zugfahrten bei Grenzübertritt.
-- **Künstliche Intelligenz (KI)**: Systeme lernen aus Daten (Chatbots, Prognosen, Bilderkennung). Beispiel: Verspätungsprognosen bei der DB.
-- **Microservices**: Anwendungen bestehen aus kleinen, unabhängigen Diensten. Jeder Dienst erfüllt eine bestimmte Aufgabe.
-- **Edge Computing**: Datenverarbeitung nahe an Sensoren oder Zügen. Reagiert schnell ohne Internetverbindung.
-
-**Beispiel Deutsche Bahn:**
-IoT-Sensoren an Zügen senden Daten in Echtzeit an eine Cloud-Plattform, KI bewertet Zustände der Fahrzeuge, Microservices kümmern sich um Wartungs- und Planungsprozesse.
-
-### Unterschied zwischen Cloud Computing und Edge Computing
-- **Cloud**: Zentrale Verarbeitung in Rechenzentren, hohe Rechenleistung, gut für Analysen und große Datenmengen.
-- **Edge**: Dezentrale Verarbeitung vor Ort (z. B. im Zug), geringe Latenz und unabhängig vom Internet.
-- **Praxis**: Edge für Echtzeitdaten (z. B. Bremssensoren), Cloud für langfristige Analyse und KI-Training.
-
-### Anwendungsfälle für KI
-- **Bilderkennung**: KI erkennt Objekte, Personen oder Muster in Bildern/Videos. Beispiel: Qualitätskontrollen, Gesichtserkennung
-- **Spracherkennung**: KI versteht und erzeugt menschliche Sprache. Beispiel: Chatbots, Sprachassistenten, Übersetzer
-- **Predictive Analytics**: KI analysiert Daten und prognostiziert zukünftige Entwicklung. Beispiel: Umsatzprognosen, Wartungsvorhersagen
-- **Autonome Systeme**: KI trifft Entscheidungen in Echtzeit auf Basis von Server- und Kameradaten. Beispiel: Autonomes Fahren von Autos, Drohnen
-- **Medizinische Diagnostik**: KI unterstützt bei der Auswertung medizinischer Daten. Beispiel: Tumorerkennung, Analyse von MRT-Bildern
-- **Robotik**: KI steuert Roboter und ermöglicht selbständiges Lernen und Handeln
-- **Fraud Detection**: KI erkennt ungewöhnliche Muster und verdächtige Transaktionen
-
-### Grundprinzipien der IT-Sicherheit
-- **CIA-Triade**: Confidentiality (Vertraulichkeit), Integrity (Integrität), Availability (Verfügbarkeit).
-- **AAA-Prinzip**: Authentication, Authorization, Accounting.
-- **Zero-Trust-Prinzip**: Kein Standardvertrauen, alles wird überprüft.
-- **Defense-in-Depth**: Mehrere Sicherheitsschichten.
-- **Praxis DB**: Zugriffe per MFA, Verschlüsselung, BSI-Grundschutz.
+# IT-TRENDS – KONTROLLFRAGEN – MUSTERLÖSUNG
 
 ---
 
-## 2) Cloud Computing & REST-Schnittstellen
+# **1) IT-Trends – Einleitung / Überblick**
 
-### Eine REST-Schnittstelle auf der Kommandozeile bedienen
-**Beispiel mit curl:**
-- GET – Daten abrufen:
-  ```sh
-  curl -i https://api.db.example.com/v1/trains/ICE123
-  ```
-- POST – Daten senden:
-  ```sh
-  curl -X POST -H "Content-Type: application/json" -d '{"status":"ready"}' https://api.db.example.com/v1/trains
-  ```
-- PUT – Ressource vollständig ersetzen/aktualisieren:
-  ```sh
-  curl -X PUT -H "Content-Type: application/json" -d '{"status":"in_service"}' https://api.db.example.com/v1/trains/ICE123
-  ```
-- PATCH – Ressource teilweise aktualisieren:
-  ```sh
-  curl -X PATCH -H "Content-Type: application/json" -d '{"status":"delayed"}' https://api.db.example.com/v1/trains/ICE123
-  ```
-- DELETE – Ressource löschen:
-  ```sh
-  curl -X DELETE https://api.db.example.com/v1/trains/ICE123
-  ```
-- Tipp: `-i` zeigt Header, `-v` Debug, `-sS` still mit Fehlern
+## **Frage: Mindestens 6 IT-Trends benennen und kurz erläutern.**
 
-### Aufbau einer REST-Schnittstelle
-- Ressourcenorientiert: eindeutige URLs (z. B. /v1/trains/ICE123).
-- HTTP-Methoden: GET, POST, PUT, PATCH, DELETE.
-- Antwortformat: meist JSON.
-- Statuscodes: 200 OK, 201 Created, 404 Not Found, 500 Error.
-- Authentifizierung über Token (Bearer).
-- Versionierung über Pfad (z. B. /v1) oder Header.
+* **Cloud Computing**  
+  Bereitstellung von IT-Ressourcen über das Internet. Skalierbar, flexibel, Pay-as-you-go.
 
-### Wesentliche Eigenschaften und Vorteile einer REST-Schnittstelle
-- Einheitliche HTTP-Schnittstelle, leicht verständlich.
-- Zustandslos (stateless) – einfach skalierbar.
-- Cachbar – schnellere Antworten.
-- Lose gekoppelt – unabhängige Entwicklung.
-- Standardisiert – viele Tools verfügbar.
+* **Industrie 4.0**  
+  Vernetzte Maschinen, Sensorik, Automatisierung. Ziel: Effizienz, Predictive Maintenance, Echtzeitdaten.
 
-### Microservice-Architektur vs. Service-orientierte Architektur (SOA)
-- **SOA**: Zentrale Dienste, oft schwerfällig (z. B. ESB).
-- **Microservices**: Klein, unabhängig, leicht austauschbar.
-- Eigene Datenhaltung je Service.
-- Kommunikation über REST oder Messaging.
-- Beispiel DB: Buchung, Bezahlung und Benachrichtigung sind getrennte Services.
+* **Internet of Things (IoT)**  
+  Geräte, Infrastruktur & Fahrzeuge senden kontinuierlich Sensordaten → Basis für Echtzeitüberwachung.
 
-### Beispiel für eine Anwendung mit Microservice-Architektur und REST-Schnittstelle
-- Beispiel: DB-Online-Ticketverkauf.
-- Services: Auth-Service, Buchungs-Service, Zahlungs-Service, Benachrichtigungs-Service.
-- Kommunikation per REST-API (z. B. POST /tickets).
-- Jeder Service hat eigene Datenbank und kann unabhängig aktualisiert werden.
+* **Blockchain**  
+  Kryptografisch verkettete Einträge, unveränderbar und transparent. Kein Vertrauen in eine zentrale Stelle nötig.
+
+* **Künstliche Intelligenz (KI)**  
+  Systeme lernen Muster und treffen Vorhersagen. Einsatz für Prognosen, Bilderkennung, Automatisierung.
+
+* **Microservices**  
+  Anwendungen bestehen aus kleinen, unabhängig deploybaren Diensten. Skalierbar, modular.
+
+* **Edge Computing**  
+  Datenverarbeitung direkt am Gerät (z. B. Zug). Sehr geringe Latenz, funktioniert ohne Internet.
+
+**DB-Praxisbeispiel Blockchain:**  
+Blockchain dokumentiert **grenzüberschreitende Zugfahrten** fälschungssicher.  
+Grenzübertritt → kryptografischer Eintrag → eindeutiger Verantwortungsübergang.
 
 ---
 
-## 3) Cloud Computing – Einleitung / Überblick
+## **Frage: Unterschied Cloud vs. Edge Computing.**
 
-### Cloud definieren
-- Bereitstellung von IT-Ressourcen über das Internet (Rechenleistung, Speicher, Software).
-- NIST-Definition: Zugriff auf konfigurierbare Ressourcen, schnell und bedarfsabhängig bereitgestellt.
-- Servicemodelle: IaaS, PaaS, SaaS, FaaS.
+* **Cloud Computing**
+  - zentrale Rechenzentren
+  - hohe Rechenleistung
+  - ideal für Analyse, Speicherung, KI-Training
 
-### Bildliche Darstellung der Cloud-Definition
-- Cloud = IT aus der Steckdose: Nutzung nach Bedarf, Abrechnung nach Verbrauch.
-- Anbieter betreibt Hardware, Sicherheit, Skalierung.
+* **Edge Computing**
+  - Verarbeitung am Gerät
+  - extrem geringe Latenz
+  - funktioniert offline
 
-### Argumente gegen Cloud-Verwendung
-- Datenschutz / DSGVO / KRITIS-Auflagen.
-- Vendor-Lock-in – Anbieterbindung.
-- Netzabhängigkeit (Offline-Risiko).
-- Kosten bei Dauerlast / Egress-Traffic.
-- Komplexität bei Migration alter Systeme.
+**DB-Beispiel:**  
+Edge bewertet Sensordaten im Zug → Cloud analysiert Langzeittrends und trainiert KI-Modelle.
 
-### Argumente für Cloud-Verwendung
-- Schnelle Bereitstellung und Skalierbarkeit.
-- Kostenersparnis durch Pay-as-you-go.
-- Weniger Wartungsaufwand durch Managed Services.
-- Globale Erreichbarkeit, hohe Ausfallsicherheit.
-- Schnelle Innovation durch neue Features.
+---
 
-### Prozess beim Praxispartner, der sich per Cloud verbessern lässt
-- Prozess: Rechnungsfreigabe und Archivierung.
-- Cloud-Lösung: automatischer Workflow mit KI-Belegerkennung.
-- Audit-Trails, Zugriffskontrolle (MFA), API-Anbindung an ERP.
-- Ergebnis: schnellere Abläufe, bessere Nachvollziehbarkeit.
+## **Frage: Anwendungsfälle für KI.**
 
-### Beispiel-Services einer Cloud
-- **IaaS** – Virtuelle Maschinen, Storage, Netzwerke.
-- **PaaS** – Datenbanken, Queues, Serverless-Plattformen.
-- **SaaS** – CRM, Office-Tools, E-Mail-Dienste.
-- **FaaS** – Kleine Funktionen auf Abruf (z. B. AWS Lambda).
-- **Security-Dienste** – IAM, WAF, KMS.
+* Bilderkennung in Werkstätten (Verschleißanalyse)
+* Ticket- und Dokumentenauswertung
+* Verspätungs- und Auslastungsprognosen
+* Chatbots im Kundenservice
+* Automatisierte Wartungsplanung
+
+---
+
+## **Frage: Grundprinzipien der IT-Sicherheit.**
+
+* **CIA-Triade:**
+  - Confidentiality – Vertraulichkeit
+  - Integrity – Integrität
+  - Availability – Verfügbarkeit
+
+* **AAA:** Authentication, Authorization, Accounting
+
+* **Zero Trust:** kein implizites Vertrauen
+
+* **Defense in Depth:** mehrere Schutzschichten
+
+* **DB-Bezug:** MFA, Verschlüsselung, Rollen & Rechte, BSI-Grundschutz
+
+---
+
+# **2) Cloud Computing & REST-Schnittstellen**
+
+## **Frage: Eine REST-Schnittstelle auf der Kommandozeile bedienen.**
+
+**GET:**
+```sh
+curl -i https://api.example.com/v1/trains/ICE123
+```
+
+**POST:**
+```sh
+curl -X POST -H "Content-Type: application/json" \
+     -d '{"status":"ready"}' https://api.example.com/v1/trains
+```
+
+**PUT:**
+```sh
+curl -X PUT -H "Content-Type: application/json" \
+     -d '{"status":"in_service"}' https://api.example.com/v1/trains/ICE123
+```
+
+**PATCH:**
+```sh
+curl -X PATCH -H "Content-Type: application/json" \
+     -d '{"status":"delayed"}' https://api.example.com/v1/trains/ICE123
+```
+
+**DELETE:**
+```sh
+curl -X DELETE https://api.example.com/v1/trains/ICE123
+```
+
+**Tipps:**  
+`-i` Header anzeigen, `-v` Debug, `-sS` Fehler sichtbar, Output ruhig.
+
+---
+
+## **Frage: Aufbau einer REST-Schnittstelle.**
+
+* Ressourcenorientierte URLs
+* HTTP-Methoden: GET / POST / PUT / PATCH / DELETE
+* JSON als Standardformat
+* Statuscodes: 200, 201, 400, 404, 500
+* Authentifizierung via Bearer Token
+* Versionierung: /v1 oder per Header
+
+---
+
+## **Frage: Vorteile/Eigenschaften von REST.**
+
+* Einfach & standardisiert
+* Stateless → sehr gute Skalierung
+* Caching möglich
+* Lose gekoppelte Architektur
+* Breite Tool-Unterstützung
+
+---
+
+## **Frage: Microservices vs. SOA.**
+
+* **SOA:** große Dienste, zentralisiert, oft schwerfällig
+* **Microservices:** klein, leicht, unabhängig deploybar
+* eigene Datenhaltung je Service
+* Kommunikation über REST / Messaging
+
+**DB-Beispiel:**  
+Ticketkauf, Zahlung, Benachrichtigung sind getrennte Services.
+
+---
+
+## **Frage: Beispielanwendung als Microservices + REST.**
+
+**DB-Online-Ticketverkauf**
+
+* Services: Auth, Ticket, Payment, Notification
+* REST-Beispiele:  
+  `POST /tickets` erstellt Ticket  
+  `GET /tickets/{id}` liest Ticket
+* Jeder Service unabhängig skalierbar
+
+---
+
+# **3) Cloud Computing – Überblick**
+
+## **Frage: Cloud definieren.**
+
+* IT-Ressourcen über Netzwerk bereitgestellt
+* flexibel, elastisch skalierbar
+* Abrechnung nach Nutzung
+* Servicemodelle: IaaS, PaaS, SaaS, FaaS
+
+---
+
+## **Frage: Bildliche Darstellung.**
+
+Cloud = „Strom aus der Steckdose“  
+Man nutzt Ressourcen ohne Geräte/Hardware selbst zu besitzen.
+
+---
+
+## **Frage: Argumente gegen Cloud.**
+
+* Datenschutz, DSGVO, KRITIS
+* Abhängigkeit von Anbietern
+* Netzabhängigkeit
+* mögliche Kosten bei Dauerlast
+* Altsystemmigration komplex
+
+---
+
+## **Frage: Argumente für Cloud.**
+
+* hohe Skalierbarkeit
+* keine eigene Hardware
+* schnelle Bereitstellung
+* moderne Dienste (KI, Analytics)
+* hohe Ausfallsicherheit
+
+---
+
+## **Frage: Verbessern eines Prozesses (DB).**
+
+**Beispiel: Rechnungsfreigabe**
+
+* digitaler Workflow
+* automatische Belegerkennung (KI)
+* revisionssichere Speicherung
+* MFA + Audit-Trails
+* Integration ins ERP
+
+---
+
+## **Frage: Beispiel-Services einer Cloud.**
+
+* IaaS: EC2, EBS, VPC
+* PaaS: RDS, SQS, Lambda
+* SaaS: Office 365, Salesforce
+* FaaS: AWS Lambda
+
+---
+
+# **4) AWS – CLI, Skripte, Preisberechnung**
+
+## **Frage: Datei aus einem S3-Bucket herunterladen.**
+
+```sh
+aws s3 cp s3://BUCKET/DATEI .
+```
+
+---
+
+## **Frage: Skript mit Parametern (Bucket, Datei).**
+
+**Bash:**
+```bash
+bucket=$1
+file=$2
+aws s3 cp s3://$bucket/$file ~/Downloads/$file
+```
+
+---
+
+## **Frage: Kosten berechnen.**
+
+**Beispiel: S3 Glacier Deep Archive**
+
+* 2 TB gespeichert → ca. 3.72 USD / Monat
+* 100 GB Upload → ca. 0.62 USD
+* **Gesamt: ca. 4.34 USD / Monat**
+
+---
+
+## **Frage: Drei Cloud-Service-Modelle.**
+
+* IaaS → komplette Infrastruktur
+* PaaS → Plattform (DB, Apps)
+* SaaS → fertige Software
+
+---
+
+# **5) AWS – VPC, Netzwerke, EC2**
+
+## **Frage: VPC erstellen.**
+
+```sh
+aws ec2 create-vpc --cidr-block 10.0.0.0/16
+```
+
+---
+
+## **Frage: Bedeutung des CIDR-Werts.**
+
+`10.0.0.0/16`  
+→ 16 Bit Netzwerkanteil  
+→ 65.536 IP-Adressen verfügbar
+
+---
+
+## **Frage: Subnetze erstellen, IP-Bedarf bestimmen.**
+
+Beispiel: 4 Subnetze  
+→ 2 zusätzliche Bits  
+→ `/18` pro Subnetz
+
+---
+
+## **Frage: Routing + Internetzugriff einrichten.**
+
+**Public Subnet:**
+* IGW verbinden
+* Route 0.0.0.0/0 → IGW
+* EC2 mit Public IP
+
+**Private Subnet:**
+* Route 0.0.0.0/0 → NAT Gateway
+
+---
+
+## **Frage: EC2-Instanz mit Hello PUBLIC / PRIVATE.**
+
+```bash
+#!/bin/bash
+yum install -y httpd
+echo "Hello PUBLIC" > /var/www/html/index.html
+systemctl enable httpd
+systemctl start httpd
+```
+
+---
+
+## **Frage: Sicherheitsgruppen.**
+
+**Public:**
+* Port 80 → 0.0.0.0/0
+* Outbound alles frei
+
+**Private:**
+* nur interner Zugriff erlaubt
+* Outbound über NAT
+
+---
+
+## **Frage: Nutzen im Unternehmen (DB).**
+
+* strikte Trennung kritischer Systeme
+* bessere Sicherheit (Subnetze, SGs)
+* klar definierte Zugriffswege
+* effizienter Betrieb durch Automatisierung
+
+---
