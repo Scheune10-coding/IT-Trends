@@ -2,7 +2,8 @@
 
 ---
 
-# **1) IT-Trends – Einleitung / Überblick**
+<details>
+<summary><strong>1) IT-Trends – Einleitung / Überblick</strong></summary>
 
 ## **Frage: Mindestens 6 IT-Trends benennen und kurz erläutern.**
 
@@ -75,9 +76,12 @@ Edge bewertet Sensordaten im Zug → Cloud analysiert Langzeittrends und trainie
 
 * **DB-Bezug:** MFA, Verschlüsselung, Rollen & Rechte, BSI-Grundschutz
 
+</details>
+
 ---
 
-# **2) Cloud Computing & REST-Schnittstellen**
+<details>
+<summary><strong>2) Cloud Computing & REST-Schnittstellen</strong></summary>
 
 ## **Frage: Eine REST-Schnittstelle auf der Kommandozeile bedienen.**
 
@@ -157,9 +161,12 @@ Ticketkauf, Zahlung, Benachrichtigung sind getrennte Services.
   `GET /tickets/{id}` liest Ticket
 * Jeder Service unabhängig skalierbar
 
+</details>
+
 ---
 
-# **3) Cloud Computing – Überblick**
+<details>
+<summary><strong>3) Cloud Computing – Überblick</strong></summary>
 
 ## **Frage: Cloud definieren.**
 
@@ -216,9 +223,12 @@ Man nutzt Ressourcen ohne Geräte/Hardware selbst zu besitzen.
 * SaaS: Office 365, Salesforce
 * FaaS: AWS Lambda
 
+</details>
+
 ---
 
-# **4) AWS – CLI, Skripte, Preisberechnung**
+<details>
+<summary><strong>4) AWS – CLI, Skripte, Preisberechnung</strong></summary>
 
 ## **Frage: Datei aus einem S3-Bucket herunterladen.**
 
@@ -255,9 +265,12 @@ aws s3 cp s3://$bucket/$file ~/Downloads/$file
 * PaaS → Plattform (DB, Apps)
 * SaaS → fertige Software
 
+</details>
+
 ---
 
-# **5) AWS – VPC, Netzwerke, EC2**
+<details>
+<summary><strong>5) AWS – VPC, Netzwerke, EC2</strong></summary>
 
 ## **Frage: VPC erstellen.**
 
@@ -326,4 +339,4 @@ systemctl start httpd
 * klar definierte Zugriffswege
 * effizienter Betrieb durch Automatisierung
 
----
+</details>
