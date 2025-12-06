@@ -26,4 +26,4 @@
 - erstellen einer [VPC mit SSH Port-Weiterleitung](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/PORT%20FORWARDING/Port-forwarding_04.12.2025.md)
 
 ## Kontrollfragen
-- [Lösung zu Kontrollfragen](https://github.com/Scheune10-coding/IT-Trends/blob/main/Kontrollfragen/IT-Trends_Kontrollfragen_Lösung.md)
+- [Lösung zu Kontrollfragen](https://github.com/Scheune10-coding/IT-Trends/blob/main/Kontrollfragen/Lösungen/IT-Trends_Kontrollfragen_Lösung.md)
