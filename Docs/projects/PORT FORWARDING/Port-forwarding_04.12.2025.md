@@ -127,102 +127,56 @@ Damit ist die private Instanz vollständig vor externem Zugriff geschützt.
 ## **5. EC2 Instanzen starten**
 
 **Pfad:**  
-EC2 → **Instance straten**
+EC2 → **Instance starten**
 
-### Öffentliche EC2
+---
 
-- Name: `YourName`
-- **Ubuntu**
+### 5.1 Öffentliche EC2 (Bastion Host)
 
-Key pair:
-- Deine .pem Datei
+1. **Name:** z. B. `BastionHost`
+2. **AMI:** Ubuntu
+3. **Key pair:** Deine `.pem` Datei
+4. **Network settings:**
+    - VPC: Deine erstellte VPC
+    - Subnet: Öffentliches Subnet (z. B. `Public-Subnet-A` oder `Public-Subnet-B`)
+    - Auto-Assign Public IP: **ENABLED**
+    - Security Group: `Public-SG`
+5. **Instance starten** klicken
 
-Network settings:
-- VPC: `my-vpc-01`
-- Subnet: `project-subnet-public1`
-- Auto-Assign Public IP: **ENABLED**
-- SG: Public-SG
-
-**Klicke auf Instance starten**
-
-**SSH Login:**
+**SSH Login von deinem Rechner:**
 ```sh
 ssh -i WIA24.pem ubuntu@<PUBLIC-IP>
 ```
 
-#### Schlüssel-Datei auf die Public-EC2 kopieren
-Damit du von der Public-EC2 aus zur Private-EC2 springen kannst, brauchst du den Key dort auf der Maschine.
+**Schlüsseldatei auf die Public-EC2 kopieren (für späteren Zugriff auf Private-EC2):**
 
-##### Vom lokalen Rechner zur Public-EC2 kopieren
-Auf deinem Mac/PC (im Ordner, wo .pem liegt):
-
+Auf deinem Mac/PC (im Ordner, wo `.pem` liegt):
 ```sh
 scp -i WIA24.pem WIA24.pem ubuntu@<PUBLIC-IP-DER-PUBLIC-EC2>:~/
 ```
 
-Dann auf der Public-EC2:
-
+Auf der Public-EC2:
 ```sh
 chmod 400 WIA24.pem
 ls -l WIA24.pem
 ```
 
-### Private EC2
+---
 
-- Name: `YourName`
-- **Ubuntu**
+### 5.2 Private EC2
 
-Key pair:
-- Deine .pem Datei
+1. **Name:** z. B. `PrivateWeb`
+2. **AMI:** Ubuntu
+3. **Key pair:** Deine `.pem` Datei
+4. **Network settings:**
+    - VPC: Deine erstellte VPC
+    - Subnet: Privates Subnet (z. B. `Private-Subnet-A`)
+    - Auto-Assign Public IP: **DISABLED**
+    - Security Group: `Private-SG`
+5. **Instance starten** klicken
 
-Network settings:
-- VPC: `my-vpc-01`
-- Subnet: `project-subnet-private1`
-- Auto-Assign Public IP: **DISABLED**
-- SG: Private-SG
-
-**Klicke auf Instance starten**
-
-**SSH Login über Public EC2:**
-
+**SSH Login (von der Public-EC2 aus):**
 ```sh
-ssh -i WIA24.pem ubuntu@<PRIVATE-IP>
-```
-
----
-
-
-### **5.1 Public Instance (Bastion)**
-
-| Einstellung           | Wert            |
-| --------------------- | --------------- |
-| Subnet                | Public-Subnet-A |
-| Auto-Assign Public IP | ENABLED         |
-| SG                    | Public-SG       |
-| AMI                   | Ubuntu 24.04    |
-| Keypair               | WIA24.pem       |
-
-**SSH Login:**
-
-```bash
-ssh -i WIA24.pem ubuntu@<PUBLIC-IP>
-```
-
----
-
-### **5.2 Private Instance**
-
-| Einstellung           | Wert             |
-| --------------------- | ---------------- |
-| Subnet                | Private-Subnet-A |
-| Auto-Assign Public IP | disabled         |
-| SG                    | Private-SG       |
-| AMI                   | Ubuntu 24.04     |
-| Keypair               | WIA24.pem        |
-
-Login über Bastion:
-
-```bash
 ssh -i WIA24.pem ubuntu@<PRIVATE-IP>
 ```
 
