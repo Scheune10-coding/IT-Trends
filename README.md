@@ -1,5 +1,9 @@
 # IT-Trends
 ## Allgemeine Infos:
+- [Agile Methoden](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/generell/Agile_Methoden.md)
+- [Cloud Computing](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/generell/Cloud_Computing.md)
+- [Microservices](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/generell/Microservices.md)
+- [Mail Verschlüsselung](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/generell/Mail_Verschluesselung_HTTPS.md)
 - [AWS CLI](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/generell/AWS_CLI.md)
 - [AWS S3](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/generell/AWS_S3.md)
 - [AWS EC2](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/generell/AWS_EC2.md)
@@ -18,7 +22,8 @@
 - erstellen einer [Linux Instanz mit HTTP Daemon](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/EC2/Linux-HTTP-Daemon_14.11.2025.md)
 
 - erstellen einer [Virtual Private Cloud](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/VPC/VPC_18.11.2025.md)
-- erstellen einer [VPC mit privaten und öffentlichen Subnet](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/COMPLEX/VPC-complex_27.11.2025.md)
+- erstellen einer [VPC mit privaten und öffentlichen Subnet (Webseiten)](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/COMPLEX/VPC-complex_27.11.2025.md)
+- erstellen einer [VPC mit SSH Port-Weiterleitung](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/PORT FORWARDING/Port-forwarding_04.12.2025.md)
 
 ## Kontrollfragen
 - [Lösung zu Kontrollfragen](https://github.com/Scheune10-coding/IT-Trends/blob/main/Kontrollfragen/IT-Trends_Kontrollfragen_Lösung.md)
