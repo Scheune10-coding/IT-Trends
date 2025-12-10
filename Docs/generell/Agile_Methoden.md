@@ -27,6 +27,7 @@ Agile Methoden sind Ansätze im Projektmanagement, die auf Flexibilität, schnel
 - **Storyboards/Kanban Boards:** Tools wie Jira, Trello, Azure Boards  
   *Wofür?* Zur Visualisierung und Steuerung des Arbeitsfortschritts im Team (z. B. Aufgabenstatus: To Do, In Progress, Done), Transparenz schaffen, Engpässe erkennen und Aufgaben priorisieren.
 - **Backlog Management:** Verwaltung und Priorisierung aller Aufgaben und Anforderungen
+- **Pairing Tabelle:** Übersicht, wer mit wem zusammenarbeitet (z. B. beim Pair Programming), fördert Wissensaustausch und Teamzusammenhalt
 
 ## MVP (Minimum Viable Product)
 - **Definition:** Die minimal funktionsfähige Version eines Produkts, die gerade genug Features enthält, um von ersten Nutzern getestet zu werden.
