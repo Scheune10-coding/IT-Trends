@@ -9,7 +9,7 @@
 In dieser Aufgabe wird eine VPC-Struktur aufgebaut, die aus folgenden Komponenten besteht:
 
 * 1 VPC mit **10.10.0.0/16**
-* 2 öffentliche Subnetze
+* 1 öffentliche Subnetze
 * 2 private Subnetze
 * 1 EC2-Instanz im **Public Subnet** (Bastion Host)
 * 1 EC2-Instanz im **Private Subnet**
