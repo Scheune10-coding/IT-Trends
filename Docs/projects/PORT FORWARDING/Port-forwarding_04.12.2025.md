@@ -202,39 +202,16 @@ echo '<h1>Hello from the private subnet</h1>' | sudo tee /var/www/html/index.htm
 sudo python3 -m http.server 80 --directory /var/www/html
 ```
 
-Test auf der **Public-Instance**:
-
-```bash
-curl http://<PRIVATE-IP>
-```
-
-Erwartung: HTML-Ausgabe sichtbar.
-
 ---
 
 ## **7. SSH-Portweiterleitung einrichten**
 
 ### Wichtig:
 
-Der Tunnel muss **auf der Public Instance**
+Der Tunnel muss **auf der Public Instance** laufen
 
-### **7.1 SSH-Key auf Public Instance kopieren**
 
-Auf deinem Laptop:
-
-```bash
-scp -i WIA24.pem WIA24.pem ubuntu@<PUBLIC-IP>:~/
-```
-
-Auf der Public Instance:
-
-```bash
-chmod 400 WIA24.pem
-```
-
----
-
-### **7.2 Tunnel starten (auf der Public Instance)**
+### **Tunnel starten (auf der Public Instance)**
 
 ```bash
 ssh -i WIA24.pem -L 0.0.0.0:8017:<PRIVATE-IP>:80 ubuntu@<PRIVATE-IP> -N
