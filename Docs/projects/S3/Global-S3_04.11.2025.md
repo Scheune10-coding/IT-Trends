@@ -20,7 +20,7 @@
           "Effect": "Allow",
           "Principal": "*",
           "Action": "s3:GetObject",
-          "Resource": "arn:aws:s3:::amzn-test-bucketls/<file>"
+          "Resource": "arn:aws:s3:::<bucket>/<file>"
         }
       ]
     }
