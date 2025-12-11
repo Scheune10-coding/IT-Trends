@@ -5,6 +5,7 @@
 
 2. Sicherheitsgruppe:
    - HTTP (80) → 0.0.0.0/0
+   - SSH (22) → deine-IP
 
 3. Einloggen:
     - ssh -i key.pem ubuntu@`<PUBLIC-IP>`

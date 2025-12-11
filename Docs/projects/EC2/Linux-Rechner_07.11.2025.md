@@ -3,7 +3,7 @@
 1. EC2 → Neue Instanz starten (Ubuntu oder Amazon Linux)
 - .pem Datei zuweisen
 
-2. Sicherheitsgruppe:
+2. Sicherheitsgruppe anpassen:
    - SSH (22) → eigene IP erlauben
 
 3. Auf Instanz verbinden:
