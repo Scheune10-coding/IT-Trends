@@ -3,7 +3,8 @@
 1. AWS-Konsole → S3 öffnen
 
 2. Neuen Bucket erstellen (oder bestehenden wählen)
-   - Optional: **Block all public access** DEAKTIVIEREN (falls erlaubt)
+   - **Block all public access** DEAKTIVIEREN (falls erlaubt)
+   - **Block public access to buckets and objects granted through any access control lists (ACLs)** einschalten
 
 3. Datei hochladen:
    - **Upload** → Datei auswählen → hochladen
