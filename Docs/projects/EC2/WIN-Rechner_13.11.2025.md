@@ -7,7 +7,8 @@
    - RDP (3389) → eigene IP
 
 3. Administrator-Passwort entschlüsseln:
-   - **Get Windows Password** → .pem hochladen
+   - **Connect** -> **RDP-Client** -> **Get Password**
+   - Datei hochladen und auf **Decrypt password** klicken
 
 4. Per RDP verbinden:
    - Windows Remotedesktop → IP + Passwort eingeben
