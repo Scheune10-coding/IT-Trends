@@ -4,6 +4,8 @@ Dieses Skript demonstriert, wie man mit Python eine REST-API abfragt, Daten extr
 
 ## Funktionen und Ablauf
 
+- [Hier gehts zum Python Skript](https://github.com/Scheune10-coding/IT-Trends/blob/main/Scripts/REST_API/fetch_names_from_url.py)
+
 1. **Registrierung (optional)**
    - Über die Variable `REGISTER` kann gesteuert werden, ob eine Registrierung durchgeführt wird.
    - Die Funktion `register()` sendet eine GET-Anfrage mit den Parametern aus `REGISTER_PARAMS` an die Registrierungs-URL.
