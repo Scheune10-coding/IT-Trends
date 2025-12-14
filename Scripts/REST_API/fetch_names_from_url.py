@@ -46,6 +46,12 @@ def extract_names(html: str) -> list[str]:
         raise ValueError("JSON enthält keine Liste.")             # Fehler, falls keine Liste
     return data                                                   # Gib die Liste zurück
 
+# Wandelt HTML-Entities (wie &#246;) in echte Zeichen um und bereinigt den Namen
+def normalize_name(name: str) -> str:
+    name = html.unescape(name)  # HTML-Entities zu Umlauten usw.
+    name = re.sub(r'\s+', ' ', name).strip()  # Doppelte Leerzeichen entfernen
+    return name
+
 # Speichert die Namen in einer CSV-Datei
 def save_to_csv(names: list[str], filename: str):
     with open(filename, "w", newline="", encoding="utf-8") as f:         # Öffne Datei zum Schreiben
@@ -64,10 +70,13 @@ def main():
     print(f"Lade Liste von {LIST_URL} …")             # Hinweis auf Laden der Liste
     names = extract_names(fetch_list_html(LIST_URL))  # Namen aus HTML extrahieren
 
+    # Namen bereinigen (HTML-Entities zu Umlauten usw.)
+    cleaned_names = [normalize_name(n) for n in names if n.strip()]
+
     print("\nGefundene Namen:")                       # Ausgabe der gefundenen Namen
-    for n in names:
+    for n in cleaned_names:
         print(" -", n)
 
-    save_to_csv(names, OUTFILE)                       # Namen in CSV speichern
+    save_to_csv(cleaned_names, OUTFILE)                       # Namen in CSV speichern
 
 main() # Starte das Programm
