@@ -55,6 +55,8 @@ Mit einer VPC kannst du:
 - **Anzahl Subnetze:** 2^(Subnetz-Präfix - VPC-Präfix)
 - **Anzahl Hosts pro Subnetz:** 2^(32-Subnetz-Präfix) - 5
 
+[Hier gehts zum IPv4 Subnet Rechner](https://www.site24x7.com/de/tools/ipv4-subnet-zrechner.html)
+
 ---
 
 ## Beispielrechnung für andere Subnetzgrößen
