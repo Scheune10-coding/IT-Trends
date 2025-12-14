@@ -30,12 +30,40 @@ REST (Representational State Transfer) ist ein Architekturprinzip für Web-Schni
 
 ### Prinzipien
 - **Ressourcenorientierte URLs:** Jede Entität (z. B. Nutzer, Ticket) hat eine eindeutige URL.
-- **HTTP-Methoden:**  
-  - GET (lesen)
-  - POST (erstellen)
-  - PUT (ersetzen)
-  - PATCH (teilweise ändern)
-  - DELETE (löschen)
+
+**GET (lesen):**
+```sh
+curl -i https://api.example.com/v1/trains/ICE123
+```
+
+**POST (erstellen):**
+```sh
+curl -X POST -H "Content-Type: application/json" \
+     -d '{"status":"ready"}' https://api.example.com/v1/trains
+```
+
+**PUT (ersetzen):**
+```sh
+curl -X PUT -H "Content-Type: application/json" \
+     -d '{"status":"in_service"}' https://api.example.com/v1/trains/ICE123
+```
+
+**PATCH (Eintrag teilweise ändern):**
+```sh
+curl -X PATCH -H "Content-Type: application/json" \
+     -d '{"status":"delayed"}' https://api.example.com/v1/trains/ICE123
+```
+
+**DELETE (entfernen):**
+```sh
+curl -X DELETE https://api.example.com/v1/trains/ICE123
+```
+
+**Tipps:**  
+`-i` Header anzeigen, `-v` Debug, `-sS` Fehler sichtbar, Output ruhig.
+
+---
+
 - **Datenformat:** Meist JSON, manchmal XML.
 - **Statuscodes:**  
   - 200 OK (Erfolg)
@@ -49,6 +77,14 @@ REST (Representational State Transfer) ist ein Architekturprinzip für Web-Schni
 GET /api/v1/users/123
 ```
 Liefert die Daten des Nutzers mit der ID 123 als JSON.
+
+### Vorteile/Eigenschaften von REST
+
+* Einfach & standardisiert
+* Stateless → sehr gute Skalierung
+* Caching möglich
+* Lose gekoppelte Architektur
+* Breite Tool-Unterstützung
 
 ### Authentifizierung
 - **OAuth2:** Token-basierte Authentifizierung, z. B. für Single Sign-On.
