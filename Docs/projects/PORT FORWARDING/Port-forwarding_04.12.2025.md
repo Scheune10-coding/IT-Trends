@@ -73,11 +73,11 @@ Da der Wizard bei nur einer AZ nur ein Public Subnet erzeugt, musst du ein weite
 
 #### **Schritt 2: Subnetz mit öffentlicher Route Table verknüpfen**
 
-1. AWS-Konsole → **VPC** → **Route Tables**
-2. Die Route Table mit Ziel `0.0.0.0/0 → Internet Gateway` suchen (meist `Main` oder `Public-RT`).
-3. Route Table auswählen → **Subnet Associations** → **Edit subnet associations**
-4. Hake das neue Subnetz (`Public-Subnet-B`) an.
-5. **Save associations** klicken.
+1. AWS-Konsole → **VPC** → **Subnets**
+2. Das neue Subnetz (`Public-Subnet-B`) auswählen.
+3. Im unteren Bereich auf **Route Table** klicken.
+4. **Edit route table association** auswählen.
+5. Die öffentliche Route Table (mit Internet Gateway) auswählen und speichern.
 
 ---
 
@@ -89,10 +89,10 @@ Jetzt ist das neue Subnetz öffentlich und erhält automatisch Internetzugang ü
 
 | Subnet           | CIDR         | Zweck        |
 | ---------------- | ------------ | ------------ |
-| Public-Subnet-A  | 10.10.1.0/24 | Bastion Host |
-| Public-Subnet-B  | 10.10.2.0/24 | Reserve      |
-| Private-Subnet-A | 10.10.3.0/24 | Private EC2  |
-| Private-Subnet-B | 10.10.4.0/24 | Reserve      |
+| Public-Subnet-A  | 10.10.0.0/24 | Bastion Host |
+| Public-Subnet-B  | 10.10.16.0/24 | Reserve      |
+| Private-Subnet-A | 10.10.128.0/24 | Private EC2  |
+| Private-Subnet-B | 10.10.144.0/24 | Reserve      |
 
 ---
 
@@ -259,9 +259,9 @@ Sollte die Website aus `/var/www/html` der privaten Instanz anzeigen.
 | ------------------------------------------- | ------------------------------------- | --------------------------------------------- |
 | `connection refused` bei Port 8017          | Tunnel läuft nicht                    | Tunnelbefehl aktiv halten                     |
 | Zeitüberschreitung beim Curl auf Private-IP | Security Group falsch                 | Private-SG muss Public-SG als Source erlauben |
-| Tunnel meldet „Address already in use“      | alter SSH-Tunnel blockiert Port       | `sudo lsof -i:8017` und Prozess killen        |
+| Tunnel meldet „Address already in use“      | alter SSH-Tunnel blockiert Port       | `sudo lsof -i:8017` und Prozess killen `sudo kill <PID>`        |
 | Browser zeigt nichts an                     | Webserver auf Private nicht gestartet | python-http-server prüfen                     |
-| Fehler beim Start von `python3 -m http.server 80` | Port 80 bereits belegt               | Mit `sudo lsof -i:80` prüfen und Prozess beenden |
+| Fehler beim Start von `python3 -m http.server 80` | Port 80 bereits belegt               | Mit `sudo lsof -i:80` prüfen und Prozess beenden `sudo kill <PID>` |
 
 
 ---
@@ -276,4 +276,3 @@ Damit erfüllt die Umgebung alle Anforderungen:
 * Portweiterleitung über SSH mit definierter Portnummer (8017 → 80)
 * Zugriff von außen ausschließlich über definierte Wege
 
-Wenn du willst, exportiere ich dir diese Dokumentation auch als **PDF, Markdown oder Word-Datei**.
