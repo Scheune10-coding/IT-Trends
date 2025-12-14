@@ -51,6 +51,7 @@ Um die Kosten für einen Cloud-Service zu berechnen, solltest du folgende Schrit
    - NAT-Gateways und VPC-Endpunkte nur bei Bedarf einsetzen
    - Monitoring- und Alarmfunktionen nutzen (z. B. AWS Budgets)
 
+---
 
 **DIE BEISPIELE WURDEN MIT KI ERSTELLT KÖNNEN ALSO FEHLERHAFT SEIN**
 ## Beispiel für eine einfache S3-Kostenberechnung
