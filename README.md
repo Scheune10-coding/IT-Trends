@@ -25,5 +25,17 @@
 - erstellen einer [VPC mit privaten und öffentlichen Subnet (Webseiten)](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/COMPLEX/VPC-complex_27.11.2025.md)
 - erstellen einer [VPC mit SSH Port-Weiterleitung](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/PORT%20FORWARDING/Port-forwarding_04.12.2025.md)
 
+## Mitschriften / Zusammenfassungen (feat. Wiebke)
+- [01 Themenübersicht und Scrum/Kanban](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/generell/notes/01_Themenuebersicht_und_Scrum_Kanban.md)
+- [02 Agile Entwicklung, DevOps, CI/CD, MVP, Tools](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/generell/notes/02_Agile_DevOps_CI_CD_MVP_Tools.md)
+- [03 Cloud Grundlagen und Edge](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/generell/notes/03_Cloud_Grundlagen_und_Edge.md)
+- [04 Service-Modelle IaaS, PaaS, SaaS, FaaS](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/generell/notes/04_Service_Modelle_IaaS_PaaS_SaaS_FaaS.md)
+- [05 Microservices, Architektur, REST](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/generell/notes/05_Microservices_Architektur_REST.md)
+- [06 Security, Schutzziele, Krypto, HTTPS, Mail](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/generell/notes/06_Security_Schutzziele_Krypto_HTTPS_Mail.md)
+- [07 AWS S3, IaC, CloudFormation, Lambda](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/generell/notes/07_AWS_S3_IaC_CloudFormation_Lambda.md)
+- [08 EC2, SSH, Linux-Rechte, HTTPD](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/generell/notes/08_EC2_SSH_Linux_Rechte_HTTPD.md)
+- [09 Networking, IPv4, CIDR, Subnetting, OSI](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/generell/notes/09_Networking_IPv4_CIDR_Subnetting_OSI.md)
+- [10 AWS VPC, Subnetze, Routing, Prüfungsaufgaben](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/projects/generell/notes/10_AWS_VPC_Subnetze_Routing_Pruefungsaufgaben.md)
+
 ## Kontrollfragen
 - [Lösung zu Kontrollfragen](https://github.com/Scheune10-coding/IT-Trends/blob/main/Kontrollfragen/Lösungen/IT-Trends_Kontrollfragen_Lösung.md)
