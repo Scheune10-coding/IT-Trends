@@ -1,4 +1,4 @@
-# IT-Trends
+# UNTEN SIND DIE KLAUSURLÖSUNGEN VON CLAUDE - IT-Trends
 ## Allgemeine Infos:
 - [Agile Methoden](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/generell/Agile_Methoden.md)
 - [Cloud Computing](https://github.com/Scheune10-coding/IT-Trends/blob/main/Docs/generell/Cloud_Computing.md)
