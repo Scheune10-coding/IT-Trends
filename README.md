@@ -40,7 +40,6 @@
 ## Kontrollfragen
 - [Lösung zu Kontrollfragen](https://github.com/Scheune10-coding/IT-Trends/blob/main/Kontrollfragen/Lösungen/IT-Trends_Kontrollfragen_Lösung.md)
 
-
 # IT-Trends Klausur – Networking & AWS
 
 ### Vollständige Lösungsdokumentation
@@ -66,11 +65,9 @@
 
 **Ziel:** Dateien in den Bucket `clocowi24-IHREMATRIKELNUMMER` hochladen.
 
-- **JPG-Dateien** → für alle weltweit öffentlich lesbar (über Bucket Policy)
-- **Alle anderen Dateien** (z.B. PDF, .py) → privat, direkter URL-Aufruf gibt `AccessDenied`
-
-**Warum Bucket Policy?**
-AWS deaktiviert bei neuen Buckets seit 2023 Object-ACLs standardmäßig. Der korrekte Weg ist eine **Bucket Policy** mit `s3:GetObject` und `Principal: *` nur auf die JPG-Ressourcen. Dateien, die nicht in der Policy stehen, bleiben automatisch privat.
+- Das **Skript** lädt nur Dateien hoch – es kümmert sich nicht um Berechtigungen
+- Die **öffentliche Sichtbarkeit** der JPG-Datei wird manuell über eine Bucket Policy in der AWS Console gesetzt
+- Alle anderen Dateien (z.B. PDF, .py) haben keinen Eintrag in der Policy → bleiben privat, direkter URL-Aufruf gibt `AccessDenied`
 
 -----
 
@@ -96,95 +93,26 @@ aws configure
 ## Das Skript: `s3_upload.py`
 
 ```python
-import boto3
-import sys
-import os
-import json
+import boto3, sys, os
 
-# ── Konfiguration ────────────────────────────────────────────
-MATRIKELNUMMER = "IHREMATRIKELNUMMER"   # ← hier anpassen!
-BUCKET_NAME    = f"clocowi24-{MATRIKELNUMMER}"
+MATRIKELNUMMER = "IHREMATRIKELNUMMER"  # ← anpassen!
+BUCKET         = f"clocowi24-{MATRIKELNUMMER}"
 REGION         = "eu-central-1"
-# ─────────────────────────────────────────────────────────────
 
+s3 = boto3.client("s3", region_name=REGION)
 
-def create_bucket(s3, bucket_name, region):
-    """Erstellt den Bucket, falls er noch nicht existiert."""
-    try:
-        s3.create_bucket(
-            Bucket=bucket_name,
-            CreateBucketConfiguration={"LocationConstraint": region}
-        )
-        print(f"Bucket '{bucket_name}' erstellt.")
-    except s3.exceptions.BucketAlreadyOwnedByYou:
-        print(f"Bucket '{bucket_name}' existiert bereits.")
+# Bucket erstellen (falls noch nicht vorhanden)
+try:
+    s3.create_bucket(Bucket=BUCKET, CreateBucketConfiguration={"LocationConstraint": REGION})
+    print(f"Bucket '{BUCKET}' erstellt.")
+except:
+    print(f"Bucket '{BUCKET}' existiert bereits.")
 
-
-def set_public_policy(s3, bucket_name, jpg_keys):
-    """Setzt Bucket Policy: nur JPG-Dateien sind öffentlich lesbar."""
-    if not jpg_keys:
-        return
-
-    resources = [f"arn:aws:s3:::{bucket_name}/{key}" for key in jpg_keys]
-
-    # Block Public Access für Bucket Policy deaktivieren
-    s3.put_public_access_block(
-        Bucket=bucket_name,
-        PublicAccessBlockConfiguration={
-            "BlockPublicAcls":       True,
-            "IgnorePublicAcls":      True,
-            "BlockPublicPolicy":     False,  # muss False sein!
-            "RestrictPublicBuckets": False,  # muss False sein!
-        }
-    )
-
-    policy = {
-        "Version": "2012-10-17",
-        "Statement": [{
-            "Sid": "PublicReadJPG",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "s3:GetObject",
-            "Resource": resources
-        }]
-    }
-    s3.put_bucket_policy(Bucket=bucket_name, Policy=json.dumps(policy))
-    print(f"Bucket Policy gesetzt – {len(jpg_keys)} JPG(s) sind öffentlich.")
-
-
-def upload_file(s3, bucket_name, filepath):
-    """Lädt eine Datei hoch. Gibt den Dateinamen zurück."""
-    filename = os.path.basename(filepath)
-    is_jpg   = filename.lower().endswith((".jpg", ".jpeg"))
-    extra    = {"ContentType": "image/jpeg"} if is_jpg else {}
-
-    s3.upload_file(filepath, bucket_name, filename, ExtraArgs=extra)
-    url = f"https://{bucket_name}.s3.{REGION}.amazonaws.com/{filename}"
-    status = "ÖFFENTLICH" if is_jpg else "privat"
-    print(f"[{status}] {filename}")
-    print(f"  URL: {url}")
-    return filename
-
-
-def main():
-    if len(sys.argv) < 2:
-        print("Verwendung: python3 s3_upload.py <Datei1> [Datei2 ...]")
-        sys.exit(1)
-
-    s3 = boto3.client("s3", region_name=REGION)
-    create_bucket(s3, BUCKET_NAME, REGION)
-
-    jpg_keys = []
-    for filepath in sys.argv[1:]:
-        key = upload_file(s3, BUCKET_NAME, filepath)
-        if key.lower().endswith((".jpg", ".jpeg")):
-            jpg_keys.append(key)
-
-    set_public_policy(s3, BUCKET_NAME, jpg_keys)
-
-
-if __name__ == "__main__":
-    main()
+# Dateien hochladen
+for path in sys.argv[1:]:
+    name = os.path.basename(path)
+    s3.upload_file(path, BUCKET, name)
+    print(f"Hochgeladen: https://{BUCKET}.s3.{REGION}.amazonaws.com/{name}")
 ```
 
 -----
@@ -195,7 +123,7 @@ if __name__ == "__main__":
 python3 s3_upload.py s3_upload.py
 ```
 
-Das Skript lädt sich selbst hoch. Da `.py` kein JPG ist, bleibt die Datei privat.
+Das Skript lädt sich selbst hoch. Die Datei landet im Bucket und ist zunächst privat.
 
 -----
 
@@ -222,10 +150,48 @@ convert Afg1_IHREMATRIKELNUMMER.jpg Afg1_IHREMATRIKELNUMMER.pdf
 python3 s3_upload.py Afg1_IHREMATRIKELNUMMER.jpg Afg1_IHREMATRIKELNUMMER.pdf
 ```
 
+Beide Dateien landen jetzt im Bucket. Die öffentliche Sichtbarkeit der JPG-Datei wird danach manuell in der AWS Console über eine Bucket Policy gesetzt (siehe unten).
+
+-----
+
+## Bucket Policy manuell in der AWS Console setzen
+
+Damit die JPG-Datei öffentlich lesbar ist und die PDF privat bleibt, muss die Bucket Policy in der AWS Console gesetzt werden.
+
+**Schritt 1 – Block Public Access deaktivieren:**
+
+1. AWS Console → **S3** → Bucket `clocowi24-IHREMATRIKELNUMMER` öffnen
+1. Tab **Berechtigungen**
+1. Abschnitt **Öffentlichen Zugriff blockieren (Bucket-Einstellungen)** → **Bearbeiten**
+1. Die beiden Häkchen bei **„Öffentlichen Zugriff durch Bucket-Richtlinien blockieren”** und **„Öffentlichen und kontoübergreifenden Zugriff … blockieren”** **entfernen**
+1. **Speichern** → Bestätigung eintippen → **Bestätigen**
+
+**Schritt 2 – Bucket Policy eintragen:**
+
+1. Tab **Berechtigungen** → Abschnitt **Bucket-Richtlinie** → **Bearbeiten**
+1. Folgendes JSON einfügen *(Matrikelnummer und Dateiname anpassen!)*:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadJPG",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::clocowi24-IHREMATRIKELNUMMER/Afg1_IHREMATRIKELNUMMER.jpg"
+    }
+  ]
+}
+```
+
+1. **Änderungen speichern**
+
 **Ergebnis:**
 
-- `Afg1_IHREMATRIKELNUMMER.jpg` → in Bucket Policy eingetragen → **öffentlich**
-- `Afg1_IHREMATRIKELNUMMER.pdf` → nicht in Policy → **privat (AccessDenied)**
+- `Afg1_IHREMATRIKELNUMMER.jpg` → in Bucket Policy eingetragen → **öffentlich** ✅
+- `Afg1_IHREMATRIKELNUMMER.pdf` → nicht in Policy → **privat (AccessDenied)** ❌
 
 -----
 
@@ -797,7 +763,7 @@ xvdb    202:16   0    8G  0 disk
 |Problem                                      |Ursache                                         |Lösung                                                                                                            |
 |---------------------------------------------|------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
 |S3: `AccessDenied` beim Hochladen            |boto3 findet keine Credentials                  |`aws configure` ausführen                                                                                         |
-|S3: JPG-URL gibt trotzdem `AccessDenied`     |`BlockPublicPolicy` ist noch `true`             |Das Skript setzt es automatisch auf `false` – Skript nochmal ausführen                                            |
+|S3: JPG-URL gibt `AccessDenied`              |Bucket Policy noch nicht gesetzt                |Bucket Policy manuell in AWS Console setzen (siehe Aufgabe 1c)                                                    |
 |EC2 hat keine öffentliche IP                 |Auto-Assign Public IP nicht aktiviert           |Subnetz_public → Aktionen → „IPv4-Adresse automatisch zuweisen aktivieren”                                        |
 |`curl <PRIV-IP>` hängt / Timeout             |nkn-priv-sg hat falsche Source                  |Inbound-Regel: Source muss die Security Group `nkn-pub-sg` sein, nicht eine IP                                    |
 |SSH zu nkn-priv schlägt fehl                 |Key nicht auf nkn-pub kopiert                   |`scp -i nkn-key.pem nkn-key.pem ubuntu@<PUB-IP>:~/`                                                               |
